@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>彝岭拾焰 · 1</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:"STKaiti","KaiTi","Noto Serif SC",serif;
+  background: #11100e; color: #fff1cc;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; min-height:100vh;
+  text-align:center; padding:20px;
+}
+.flame {
+  width:80px; height:80px; border-radius:50%;
+  background:radial-gradient(circle,#ffcf66 0%,#d9391f 50%,#11100e 80%);
+  margin-bottom:24px; animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:.8} 50%{transform:scale(1.2);opacity:1} }
+h2 { color:#f0b94d; font-size:1.6em; letter-spacing:4px; margin-bottom:8px; }
+p { color:rgba(248,223,172,.7); font-size:.9em; margin-bottom:20px; }
+button {
+  background:#d9391f; color:#fff1cc; border:none;
+  padding:14px 40px; border-radius:30px; font-size:1.1em;
+  font-family:inherit; cursor:pointer; letter-spacing:2px;
+  transition:all .3s;
+}
+button:hover { background:#f0b94d; color:#1b0f0a; }
+.audio-info { margin-top:16px; font-size:.75em; color:rgba(240,185,77,.5); }
+</style>
+</head>
+<body>
+<div class="flame"></div>
+<h2>彝岭拾焰</h2>
+<p>赤籽同心实践团 · 声音明信片 1</p>
+<button onclick="playAudio()">🔥 点燃火把 聆听声音</button>
+<div class="audio-info">扫码即听 · 彝族非遗文化</div>
+<audio id="audio" src="../1.mp3"></audio>
+<script>
+function playAudio() {
+  var a = document.getElementById('audio');
+  a.play().catch(function(){});
+}
+window.addEventListener('load', function() {
+  var a = document.getElementById('audio');
+  var p = a.play();
+  if (p && p.catch) p.catch(function(){});
+});
+</script>
+</body>
+</html>
