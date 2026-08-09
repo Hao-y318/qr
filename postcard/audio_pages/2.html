@@ -41,13 +41,16 @@ button:hover { background:#f0b94d; color:#1b0f0a; }
 <script>
 function playAudio() {
   var a = document.getElementById('audio');
-  a.play().catch(function(){});
-}
-window.addEventListener('load', function() {
-  var a = document.getElementById('audio');
+  a.currentTime = 0;
   var p = a.play();
-  if (p && p.catch) p.catch(function(){});
-});
+  if (p !== undefined) {
+    p.then(function() {
+      console.log('Playing');
+    }).catch(function(e) {
+      alert('播放失败，请点击按钮重试');
+    });
+  }
+}
 </script>
 </body>
 </html>
